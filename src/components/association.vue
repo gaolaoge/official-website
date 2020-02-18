@@ -1,0 +1,530 @@
+<template>
+  <div class="wrapper">
+    <section class="video">
+      <!--<img :src="videoUrl" alt="">-->
+      <div :style="[bgi]" class="videoM"></div>
+    </section>
+    <section class="positioning">
+      <h5 class="bigTitle">
+        {{ positioning.bigTitle }}
+      </h5>
+      <h6 class="title">
+        {{ positioning.title }}
+      </h6>
+      <article>
+        <div class="backgroundBoard-1"></div>
+        <div class="b">
+          <div class="img">
+            <img :src="positioning.imgUrl" alt="">
+          </div>
+          <div class="text">
+            <p>
+              {{ positioning.content }}
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="advantage">
+      <h5 class="bigTitle">
+        {{ advantage.bigTitle }}
+      </h5>
+      <h6 class="title">
+        {{ advantage.title }}
+      </h6>
+      <article>
+        <aside class="advantageList">
+          <ul>
+            <li v-for="(item,index) in advantage.list" :key="index">
+              <div class="left">
+                <img :src="item.imgUrl" alt="">
+              </div>
+              <div class="right">
+                <span class="name">
+                  {{ item.name }}
+                </span>
+                <span class="tag">
+                  {{ item.tag }}
+                </span>
+                <p class="content">
+                  <span>
+                    {{ item.content }}
+                  </span>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </aside>
+      </article>
+    </section>
+    <section class="contect">
+      <img src="@/assets/icon_form.png" alt="" @click="dialogFormVisible = true">
+      <h2 @click="dialogFormVisible = true">
+        {{ joinUs }}
+      </h2>
+      <div class="redLine"></div>
+    </section>
+    <el-dialog title="欢迎加入中国电影云基地"
+               :visible.sync="dialogFormVisible"
+               width="640px">
+      <el-form :model="form">
+        <el-form-item label="公司名称："
+                      label-width="90px">
+          <el-input v-model="form.name"
+                    autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="主要业务："
+                      label-width="90px">
+          <el-input v-model="form.name"
+                    autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="联系人："
+                      label-width="90px">
+          <el-input v-model="form.name"
+                    autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="联系人身份："
+                      label-width="90px">
+          <el-input v-model="form.name"
+                    autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="联系电话："
+                      label-width="90px">
+          <el-input v-model="form.name"
+                    autocomplete="off"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer"
+           class="dialog-footer">
+        <el-button type="primary"
+                   @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'platform',
+    data(){
+      return {
+        videoUrl: require('@/assets/p4.png'),
+        bgi: {
+          backgroundImage: 'url(' + require('@/assets/bgi.png') + ')',
+          backgroundSize: 'cover',
+          height: '100vh'
+        },
+        positioning: {
+          bigTitle: 'INTRODCTION',
+          title: '关于影视协会',
+          imgUrl: require('@/assets/p4.png'),
+          content: `本届论坛正式启动“国家电影云制作服务平台”，
+                    配合专门制作的《国家电影云制作服务平台宣传片》，
+                    首次向大众介绍国家电影云制作服务平台的建设和示范情况，
+                    阐释如何通过基于云计算服务平台的数字电影网络化、
+                    分布式跨域协同制作，
+                    促进我国精品电影持续推出，
+                    有效提升我国电影制作水平和能力，
+                    创建云计算体系下的现代电影生产制作工艺流程和新型产业服务模式，
+                    并推动电影制作与高速互联网、
+                    移动互联网实现深度融合，
+                    进而推动电影制作工业化体系建立完善。`
+        },
+        advantage: {
+          bigTitle: 'MEMBER',
+          title: '协会成员',
+          list: [
+            {
+              imgUrl: require('@/assets/w1.png'),
+              name: '于洁',
+              tag: '影视协会理事',
+              content: `本届论坛正式启动“国家电影云制作服务平台”，
+                        配合专门制作的《国家电影云制作服务平台宣传片》，
+                        首次向大众介绍国家电影云制作服务平台的建设与示范情况，
+                        阐释如何通过基于云计算服务平台的数字电影网络化、
+                        分布式跨域协同制作，
+                        促进我国精品电影持续推出，
+                        有效提升我国电影制。`
+            },
+            {
+              imgUrl: require('@/assets/w2.png'),
+              name: '于洁',
+              tag: '影视协会理事',
+              content: `本届论坛正式启动“国家电影云制作服务平台”，
+                        配合专门制作的《国家电影云制作服务平台宣传片》，
+                        首次向大众介绍国家电影云制作服务平台的建设与示范情况，
+                        阐释如何通过基于云计算服务平台的数字电影网络化、
+                        分布式跨域协同制作，
+                        促进我国精品电影持续推出，
+                        有效提升我国电影制。`
+            },{
+              imgUrl: require('@/assets/m1.png'),
+              name: '于洁',
+              tag: '影视协会理事',
+              content: `本届论坛正式启动“国家电影云制作服务平台”，
+                        配合专门制作的《国家电影云制作服务平台宣传片》，
+                        首次向大众介绍国家电影云制作服务平台的建设与示范情况，
+                        阐释如何通过基于云计算服务平台的数字电影网络化、
+                        分布式跨域协同制作，
+                        促进我国精品电影持续推出，
+                        有效提升我国电影制。`
+            },{
+              imgUrl: require('@/assets/m2.png'),
+              name: '于洁',
+              tag: '影视协会理事',
+              content: `本届论坛正式启动“国家电影云制作服务平台”，
+                        配合专门制作的《国家电影云制作服务平台宣传片》，
+                        首次向大众介绍国家电影云制作服务平台的建设与示范情况，
+                        阐释如何通过基于云计算服务平台的数字电影网络化、
+                        分布式跨域协同制作，
+                        促进我国精品电影持续推出，
+                        有效提升我国电影制。`
+            }
+          ]
+        },
+        joinUs: '点击加入我们',
+        dialogFormVisible: false,
+        form: {
+          name: ''
+        }
+      }
+    },
+    methods: {
+      joinUsFun(){
+        this.$prompt('请输入邮箱', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          inputErrorMessage: '邮箱格式不正确'
+        }).then(({ value }) => {
+          this.$message({
+            type: 'success',
+            message: '你的邮箱是: ' + value
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消输入'
+          });
+        });
+      }
+    }
+  }
+</script>
+
+<style scoped lang="less">
+  .wrapper{
+    .video {
+      height: 100vh;
+      .videoM {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0px;
+          left: 0px;
+          background: inherit;
+          filter: brightness(60%);
+          z-index: 2;
+        }
+      }
+    }
+    .positioning,
+    .advantage {
+      width: 1440px;
+      height: 602px;
+      margin: 70px auto 100px;
+      .bigTitle {
+        text-align: center;
+        color: #ddd;
+        font-size: 50px;
+        font-weight: normal;
+        line-height: 1.0em;
+        margin: 10px 0px 8px;
+        letter-spacing: 2px;
+      }
+      .title {
+        text-align: center;
+        font-size: 30px;
+        margin: 0px;
+        line-height: 1.0em;
+      }
+      article {
+        position: relative;
+        margin-top: 50px;
+        font-size: 0px;
+        .backgroundBoard-1 {
+          position: absolute;
+          z-index: -1;
+          background-color: rgba(62,62,255,0.03);
+          width: 1330px;
+          top: 12px;
+          height: 444px;
+          right: 0px;
+        }
+        .b {
+          display: flex;
+          .img {
+            display: inline-block;
+            height: 444px;
+            img {
+              margin-top: 62px;
+              width: 576px;
+              height: 324px;
+              display: inline-block;
+            }
+          }
+          .text {
+            display: inline-block;
+            width: calc(1440px - 576px);
+            font-size: 17px;
+            line-height: 2.0em;
+            padding: 80px 100px;
+            box-sizing: border-box;
+          }
+        }
+        .advantageList {
+          height: 100%;
+          ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100%;
+            li {
+              position: relative;
+              width: 100%;
+              height: 250px;
+              box-sizing: border-box;
+              list-style: none;
+              text-align: center;
+              background-color: #fff;
+              .left {
+                position: absolute;
+                width: 200px;
+                height: 250px;
+                img {
+                  position: absolute;
+                  top: 0px;
+                  left: 0px;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+              .right {
+                position: absolute;
+                box-sizing: border-box;
+                height: 100%;
+                width: 100%;
+                padding-top: 24px;
+                .name {
+                  display: inline-block;
+                  font-size: 24px;
+                  font-weight: bold;
+                  color: #424242;
+                  line-height: 1em;
+                  margin-left: 250px;
+                }
+                .tag {
+                  position: absolute;
+                  width: 84px;
+                  font-size: 14px;
+                  display: inline-block;
+                  background-color: #3E3EFF;
+                  padding: 3px 20px;
+                  color: #fff;
+                }
+                .content {
+                  position: absolute;
+                  bottom: 0px;
+                  width: 100%;
+                  height: 157px;
+                  overflow: hidden;
+                  background-color: rgba(0,0,0,0);
+                  box-shadow: 0px 2px 20px 0px rgba(62,62,255,0.15);
+                  font-size: 16px;
+                  line-height: 2.0em;
+                  text-align: center;
+                  color: #808080;
+                  margin: 0px;
+                  span {
+                    text-align: left;
+                    padding: 30px 100px;
+                  }
+                }
+              }
+              &:nth-of-type(odd) {
+                .right {
+                  text-align: left;
+                  .content {
+                    span {
+                      display: inline-block;
+                      padding-left: 250px;
+                    }
+                  }
+                  .name {
+                  }
+                  .tag{
+                    left: 350px;
+                  }
+                }
+              }
+              &:nth-of-type(even) {
+                .left {
+                  right: 0px;
+                }
+                .right {
+                  text-align: right;
+                  .content {
+                    span {
+                      display: inline-block;
+                      padding-right: 250px;
+                    }
+                  }
+                  .name {
+                    margin-right: 250px;
+                  }
+                  .tag {
+                    right: 350px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .introduction {
+          display: flex;
+          flex-direction: column;
+          align-content: space-around;
+          font-size: 16px;
+          padding-left: 0px;
+          li {
+            position: relative;
+            list-style: none;
+            .t {
+              position: absolute;
+              top: -50px;
+              width: 180px;
+              height: 272px;
+              color: rgba(255,255,255,1);
+              text-align: center;
+              .largeTitle {
+                font-size: 30px;
+                margin: 104px 0px 20px 0px;
+                font-weight: 400;
+              }
+              .title {
+                font-size: 44px;
+                font-weight: 400;
+              }
+            }
+            .c {
+              margin-left: 140px;
+              padding: 52px 120px;
+              box-sizing: border-box;
+              height:300px;
+              background:rgba(255,255,255,1);
+              box-shadow:0px 2px 40px 0px rgba(62,62,255,0.15);
+              line-height: 2.4em;
+              color: #808080;
+            }
+            &:nth-of-type(1){
+              margin-bottom: 80px;
+            }
+            &:nth-of-type(2) {
+              .t {
+                right: 0px;
+              }
+              .c {
+                margin-left: 0px;
+                width: calc(100% - 140px);
+              }
+            }
+          }
+        }
+      }
+    }
+    .advantage {
+      height: 1340px;
+      width: 1260px;
+      article {
+        height: 1240px;
+      }
+    }
+    .contect {
+      position: relative;
+      height: 395px;
+      margin-bottom: 80px;
+      text-align: center;
+      h2 {
+        cursor: pointer;
+        &:hover + .redLine {
+          box-shadow:0px 2px 22px 0px rgba(236,51,14,0.5);
+        }
+      }
+      img {
+        cursor: pointer;
+        margin-top: 120px;
+        &:hover ~ .redLine {
+          box-shadow:0px 2px 22px 0px rgba(236,51,14,0.5);
+        }
+      }
+      .redLine {
+        width: 350px;
+        height: 36px;
+        background-color: rgba(236, 51, 14, 1);
+        margin: -36px auto;
+      }
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        display: inline-block;
+        width: 100vw;
+        height: 1px;
+        background-image: linear-gradient(to right, #ccc 0%, #ccc 70%, transparent 70%);
+        background-size:10px 1px;
+        background-repeat: repeat-x;
+      }
+      &::before {
+        top: 0px;
+      }
+      &::after {
+        bottom: 0px;
+      }
+    }
+    /deep/.el-dialog__header {
+      text-align: center;
+      padding-top: 36px;
+      font-weight: bold;
+      color: #808080;
+      span {
+        font-size: 21px!important;
+      }
+    }
+    /deep/.el-dialog__body {
+      padding: 30px 100px 0px;
+      .el-form-item__label {
+        text-align: left;
+        padding: 0px!important;
+      }
+      .el-form-item {
+        margin-bottom: 15px;
+      }
+    }
+    /deep/.el-dialog__footer {
+      text-align: center;
+      padding-bottom: 30px;
+      .el-button {
+        width: 112px;
+        height: 30px;
+        background-color: rgba(62,62,255,1);
+        box-shadow: 0px 2px 10px 0px rgba(62,62,255,0.5);
+        border-radius: 5px;
+        line-height: 30px;
+        padding: 0px;
+      }
+    }
+  }
+</style>
