@@ -58,52 +58,18 @@
       </article>
     </section>
     <section class="contect">
-      <img src="@/assets/icon_form.png" alt="" @click="dialogFormVisible = true">
-      <h2 @click="dialogFormVisible = true">
+      <img src="@/assets/icon_form.png" alt="" @click="dialogFormVisible_ = true">
+      <h2 @click="dialogFormVisible_ = true">
         {{ joinUs }}
       </h2>
       <div class="redLine"></div>
     </section>
-    <el-dialog title="欢迎加入中国电影云基地"
-               :visible.sync="dialogFormVisible"
-               width="640px">
-      <el-form :model="form">
-        <el-form-item label="公司名称："
-                      label-width="90px">
-          <el-input v-model="form.name"
-                    autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="主要业务："
-                      label-width="90px">
-          <el-input v-model="form.name"
-                    autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="联系人："
-                      label-width="90px">
-          <el-input v-model="form.name"
-                    autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="联系人身份："
-                      label-width="90px">
-          <el-input v-model="form.name"
-                    autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="联系电话："
-                      label-width="90px">
-          <el-input v-model="form.name"
-                    autocomplete="off"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer"
-           class="dialog-footer">
-        <el-button type="primary"
-                   @click="dialogFormVisible = false">确 定</el-button>
-      </div>
-    </el-dialog>
+    <join-us :statusVal="dialogFormVisible_" @shutMe="shutJoinUs"/>
   </div>
 </template>
 
 <script>
+  import joinUs from '@/view/joinUs'
   export default {
     name: 'platform',
     data(){
@@ -148,7 +114,7 @@
             },
             {
               imgUrl: require('@/assets/w2.png'),
-              name: '于洁',
+              name: '王荔',
               tag: '影视协会理事',
               content: `本届论坛正式启动“国家电影云制作服务平台”，
                         配合专门制作的《国家电影云制作服务平台宣传片》，
@@ -159,7 +125,7 @@
                         有效提升我国电影制。`
             },{
               imgUrl: require('@/assets/m1.png'),
-              name: '于洁',
+              name: '豪客',
               tag: '影视协会理事',
               content: `本届论坛正式启动“国家电影云制作服务平台”，
                         配合专门制作的《国家电影云制作服务平台宣传片》，
@@ -170,7 +136,7 @@
                         有效提升我国电影制。`
             },{
               imgUrl: require('@/assets/m2.png'),
-              name: '于洁',
+              name: '捷克',
               tag: '影视协会理事',
               content: `本届论坛正式启动“国家电影云制作服务平台”，
                         配合专门制作的《国家电影云制作服务平台宣传片》，
@@ -183,29 +149,15 @@
           ]
         },
         joinUs: '点击加入我们',
-        dialogFormVisible: false,
-        form: {
-          name: ''
-        }
+        dialogFormVisible_: false
       }
     },
+    components: {
+      joinUs
+    },
     methods: {
-      joinUsFun(){
-        this.$prompt('请输入邮箱', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          inputErrorMessage: '邮箱格式不正确'
-        }).then(({ value }) => {
-          this.$message({
-            type: 'success',
-            message: '你的邮箱是: ' + value
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '取消输入'
-          });
-        });
+      shutJoinUs(v){
+        this.dialogFormVisible_ = v
       }
     }
   }
@@ -494,37 +446,7 @@
         bottom: 0px;
       }
     }
-    /deep/.el-dialog__header {
-      text-align: center;
-      padding-top: 36px;
-      font-weight: bold;
-      color: #808080;
-      span {
-        font-size: 21px!important;
-      }
-    }
-    /deep/.el-dialog__body {
-      padding: 30px 100px 0px;
-      .el-form-item__label {
-        text-align: left;
-        padding: 0px!important;
-      }
-      .el-form-item {
-        margin-bottom: 15px;
-      }
-    }
-    /deep/.el-dialog__footer {
-      text-align: center;
-      padding-bottom: 30px;
-      .el-button {
-        width: 112px;
-        height: 30px;
-        background-color: rgba(62,62,255,1);
-        box-shadow: 0px 2px 10px 0px rgba(62,62,255,0.5);
-        border-radius: 5px;
-        line-height: 30px;
-        padding: 0px;
-      }
-    }
+
+
   }
 </style>

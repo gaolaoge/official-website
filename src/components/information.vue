@@ -223,6 +223,7 @@
       }
     }
     .list {
+      margin: 0px auto;
       width: 1460px;
       li {
         height: 241px;

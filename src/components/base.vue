@@ -113,16 +113,18 @@
       </article>
     </section>
     <section class="contect">
-      <img src="@/assets/icon_form.png" alt="">
-      <h2>
+      <img src="@/assets/icon_form.png" alt="" @click="dialogFormVisible_ = true">
+      <h2 @click="dialogFormVisible_ = true">
         {{ joinUs }}
       </h2>
       <div class="redLine"></div>
     </section>
+    <join-us :statusVal="dialogFormVisible_" @shutMe="shutJoinUs"/>
   </div>
 </template>
 
 <script>
+  import joinUs from '@/view/joinUs'
   export default {
     name: 'platform',
     data(){
@@ -265,7 +267,16 @@
             }
           ]
         },
-        joinUs: '点击加入我们'
+        joinUs: '点击加入我们',
+        dialogFormVisible_: false
+      }
+    },
+    components: {
+      joinUs
+    },
+    methods: {
+      shutJoinUs(v){
+        this.dialogFormVisible_ = v
       }
     }
   }

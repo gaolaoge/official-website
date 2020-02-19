@@ -48,7 +48,10 @@
         </p>
         <nav class="baseNav">
           <ul>
-            <li v-for="item in base.list" :key="item.name" :class="{active: item.active}">
+            <li v-for="(item,index) in base.list"
+                :key="item.name"
+                :class="{active: item.active}"
+                @click="switchItem(index)">
               {{ item.index }}
               <i class="el-icon-caret-right"></i>
               {{ item.name }}
@@ -277,6 +280,15 @@ export default {
         littleTitle: '合作伙伴'
       }
     }
+  },
+  methods: {
+    switchItem(index){
+      this.base.list.forEach((curr_,index_) => {
+        curr_.active = false
+        if(index_ == index)
+          curr_.active = true
+      })
+    }
   }
 }
 </script>
@@ -465,6 +477,7 @@ export default {
           color: #424242;
           cursor: pointer;
           line-height: 26px;
+          transition: all 0.2s;
           &.active {
             color: #3E3EFF;
             font-size: 22px;

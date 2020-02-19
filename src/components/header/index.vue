@@ -128,6 +128,7 @@
       }
       .searchInput {
         position: absolute;
+        cursor: pointer;
         right: 10px;
         .i {
           color: #fff;
