@@ -255,6 +255,7 @@
                 position: absolute;
                 width: 200px;
                 height: 250px;
+                z-index: 8;
                 img {
                   position: absolute;
                   top: 0px;

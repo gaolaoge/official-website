@@ -4,6 +4,7 @@
                width="640px"
                @close="$emit('shutMe',false)">
       <div class="firstStep" v-show="join">
+        <img src="@/icons/icon_close.png" alt="" class="closeBtn" @click="$emit('shutMe',false)">
         <h6 class="mainTit">
           {{ title }}
         </h6>
@@ -163,7 +164,17 @@
         border-radius: 5px;
         line-height: 30px;
         padding: 0px;
+        border: 1px solid transparent!important;
       }
+    }
+    .el-dialog__close {
+      display: none;
+    }
+    .closeBtn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
     }
   }
 </style>

@@ -97,7 +97,7 @@
     header {
       position: relative;
       margin: 18px auto;
-      width: 1200px;
+      width: 1354px;
       height: 24px;
       .logo {
         position: absolute;
@@ -105,12 +105,12 @@
       }
       nav {
         position: absolute;
-        right: 160px;
+        right: 107px;
         ul {
           margin: 0px;
           li {
             display: inline-block;
-            padding: 0px 10px;
+            padding: 0px 25px;
             font-size: 14px;
             cursor: pointer;
             .a {

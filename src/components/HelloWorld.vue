@@ -308,7 +308,7 @@ export default {
     position: relative;
     width: 1200px;
     text-align: center;
-    margin: 52px auto 80px;
+    margin: 80px auto 80px;
     .background-1,
     .background-2,
     .background-3 {
@@ -331,25 +331,26 @@ export default {
     }
     .title {
       font-weight: 800;
-      font-size: 24px;
+      font-size: 50px;
     }
     .littleTitle {
-      margin-top: 6px;
-      font-size: 14px;
-      color: #808080;
+      /*margin-top: 6px;*/
+      margin-top: 0px;
+      font-size: 18px;
+      color: rgba(48,48,48,1);
     }
     .title.even_ {
       padding-top: 50px;
     }
     .dircetion {
       margin-top: 26px;
-      color: #808080;
-      font-size: 14px;
-      line-height: 2.0em;
+      color: rgba(128,128,128,1);
+      font-size: 16px;
+      line-height: 24px;
     }
     aside {
       margin: 40px auto 0px;
-      width: 900px;
+      width: 1266px;
       .rectangle {
         padding: 0px;
         display: flex;
@@ -357,9 +358,9 @@ export default {
         li {
           box-sizing: border-box;
           list-style: none;
-          width: 300px;
-          height: 300px;
-          padding: 12px;
+          width: 350px;
+          height: 350px;
+          padding: 30px;
           img {
             width: 100%;
           }
@@ -370,9 +371,9 @@ export default {
             line-height: 3.0em;
           }
           .direction {
-            color: #808080;
-            font-size: 13px;
-            line-height: 2.0em;
+            color: rgba(48,48,48,1);
+            font-size: 15px;
+            line-height: 30px;
           }
           .button {
             margin: 20px auto;
@@ -380,7 +381,7 @@ export default {
             font-size: 12px;
             line-height: 1.8em;
             font-weight: normal;
-            border: 1px solid #666;
+            border: 1px solid #303030;
             box-shadow:0px 2px 10px 0px rgba(62,62,255,0.1);
             cursor: pointer;
             transition: box-shadow 0.2s;
@@ -403,8 +404,9 @@ export default {
         li {
           list-style: none;
           position: relative;
-          width: 407px;
+          width: 422px;
           height: 216px;
+          font-family:Arial-BoldItalicMT,Arial;
           flex-shrink: 0;
           padding: 24px;
           box-sizing: border-box;
@@ -412,9 +414,9 @@ export default {
           transition: all 0.2s;
           .left {
             display: inline-block;
-            border-right: 1px solid #ccc;
+            border-right: 1px solid rgba(233,233,233,1);
             width: 84px;
-            height: 166px;
+            height: 170px;
             vertical-align: top;
             .date,
             .week {
@@ -431,13 +433,14 @@ export default {
           }
           .right {
             display: inline-block;
-            width: 267px;
-            padding: 8px;
-            box-sizing: border-box;
+            width: 244px;
+            padding: 8px 20px;
             text-align: left;
             .title {
-              font-size: 14px;
-              line-height: 1.8em;
+              font-size: 16px;
+              line-height: 22px;
+              font-weight: 600;
+              color: rgba(48,48,48,1);
             }
             .direction {
               margin-top: 10px;
@@ -478,6 +481,8 @@ export default {
           cursor: pointer;
           line-height: 26px;
           transition: all 0.2s;
+          width: 150px;
+          &:hover,
           &.active {
             color: #3E3EFF;
             font-size: 22px;
@@ -489,8 +494,10 @@ export default {
       width: 1200px;
       height: 600px;
       box-shadow: 0px 0px 4px 1px #ccc;
+      overflow: hidden;
       img {
-        margin: -20px 0px 0px -20px;
+        //margin: -20px 0px 0px -20px;
+        height: 600px;
       }
     }
     .articleMain {
@@ -506,23 +513,29 @@ export default {
         }
       }
       .text {
-        width: 490px;
+        width: 550px;
+        font-size: 18px;
+        font-weight: 400;
         box-sizing: border-box;
         padding: 140px 0px 0px 92px;
-        line-height: 2.0em;
-        color: #808080;
+        line-height: 40px;
+        color: rgba(96,96,96,1);
         text-align: left;
       }
       .btn {
         width: 192px;
-        margin: 0px auto;
-        font-size: 12px;
-        font-weight: bold;
-        line-height: 2.0em;
-        background-color: #fff;
-        color: #808080;
+        height: 31px;
+        margin: 60px auto;
+        font-size: 13px;
+        font-family:Arial-BoldMT,Arial;
+        font-weight: normal;
+        line-height: 31px;
+        background:rgba(187,187,187,0.1);
+        box-shadow:0px 2px 10px 0px rgba(0,0,0,0.1);
+        color:rgba(188,188,188,1);
         border-radius: 1px;
-        border: 1px solid rgba(0,0,0,1);
+        letter-spacing:1px;
+        /*border: 1px solid rgba(0,0,0,1);*/
         text-align: center;
         cursor: pointer;
         transition: color 0.2s,backgroundColor 0.2s,boxShadow 0.2s;

@@ -235,18 +235,21 @@
             li {
               list-style: none;
               header {
-                font-size: 16px;
-                color: #fff;
-                margin-bottom: 18px;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 600;
+                color: rgba(255,255,255,1);
+                margin-bottom: 20px;
               }
               nav {
                 ul {
                   padding-left: 0px;
                   li {
                     display: block;
+                    margin-bottom: 10px;
                     a {
-                      font-size: 14px;
-                      line-height: 2.2em;
+                      font-size: 12px;
+                      line-height: 17px;
                       text-decoration: none;
                       color: rgba(255,255,255,0.5);
                       transition: color 0.2s;
@@ -261,7 +264,7 @@
                 position: relative;
                 .i {
                   width: 20px;
-                  padding: 5px;
+                  padding: 10px;
                   border: 1px solid rgba(255,255,255,0.4);
                   border-radius: 50%;
                   cursor: pointer;
@@ -291,11 +294,13 @@
                 }
               }
               .btn {
+                width: 124px;
                 cursor: pointer;
                 color: #fff;
                 font-size: 14px;
-                padding: 5px 24px;
-                border-radius: 18px;
+                line-height: 40px;
+                border-radius: 34px;
+                text-align: center;
                 border: 1px solid rgba(255,255,255,0.6);
                 box-shadow: 0px 0px 3px 0px rgba(255,255,255,0.4);
                 transition: box-shadow 0.2s;
@@ -313,16 +318,19 @@
           width: 1200px;
           margin: 0px auto;
           p {
-            line-height: 2.0em;
+            font-size: 12px;
+            line-height: 17px;
+            font-weight: 400;
+            margin: 32px 0px;
             span {
-              font-size: 14px;
+
               display: inline-block;
               padding-right: 30px;
               color: rgba(255,255,255,0.6);
             }
             img {
               vertical-align: middle;
-              margin: 0px 8px;
+              /*margin: 0px 8px 32px;*/
             }
             &:nth-of-type(2) {
               color: rgba(255,255,255,0.6);
