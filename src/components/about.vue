@@ -303,18 +303,18 @@
       margin: 100px auto 200px;
       .bigTitle {
         text-align: center;
-        color: #ddd;
+        color: rgba(0,0,0,0.19);
         font-size: 50px;
         font-weight: normal;
-        line-height: 1.0em;
-        margin: 10px 0px 8px;
+        line-height: 70px;
+        margin: 0px;
         letter-spacing: 2px;
       }
       .title {
         text-align: center;
         font-size: 30px;
         margin: 0px;
-        line-height: 1.0em;
+        line-height: 40px;
       }
       article {
         img {
@@ -387,6 +387,9 @@
 
   }
 
+  /deep/.el-tabs.el-tabs--right {
+    height: 144px!important;
+  }
   .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
@@ -414,39 +417,48 @@
   /deep/.el-tabs--right .el-tabs__nav-wrap.is-right::after {
     width: 1px!important;
     opacity: 0.5;
-    left: 2px!important;
+    left: 4px!important;
   }
   /deep/.el-tabs__nav-scroll {
     overflow: initial!important;
   }
   /deep/.el-tabs__active-bar {
-    height: 5px!important;
-    width: 5px!important;
+    height: 9px!important;
+    width: 9px!important;
     border-radius: 50%;
-    top: 17px!important;
+    top: 19px!important;
+    /*left: 0px!important;*/
     background-color: rgba(62, 62, 255, 1)!important;
   }
   /deep/.el-tabs__item {
+    font-family:PingFangSC-Regular,PingFang SC;
     position: relative;
     font-size: 16px;
+    height: 46px!important;
+    line-height: 46px!important;
     user-select: none;
     &.is-active {
       font-size: 21px;
       color: rgba(62, 62, 255, 1)!important;
     }
+    &:hover {
+      color: rgba(62, 62, 255, 1)!important;
+      text-shadow:0px 0px 1px rgba(62,62,255,0.2);
+    }
+
   }
   /deep/.el-tabs__item::before {
     content: '';
     position: absolute;
     left: 0px;
-    top: 17px;
+    top: 19px;
     display: inline-block;
-    width: 3px;
-    height: 3px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 2px solid rgba(62,62,255,0.3);
     background-color: #fff;
-    box-shadow: 0px 0px 0px 3px #fff;
+    box-shadow: 0px 0px 0px 7px #fff;
   }
   .map {
     width: 691px;

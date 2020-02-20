@@ -49,9 +49,10 @@
         @current-change="handleCurrentChange"
         :current-page.sync="currentPage1"
         :page-size="5"
-        layout="total, prev, pager, next"
+        layout="prev, pager, next"
         :total="30">
       </el-pagination>
+      <span class="totalPage">共6页</span>
     </section>
   </div>
 </template>
@@ -187,7 +188,7 @@
       .searchInput {
         border: 1px solid rgba(0,0,0,0.3);
         border-radius: 44px;
-        padding-left: 18px;
+        padding-left: 34px;
         box-sizing: border-box;
         width: 650px;
         height: 44px;
@@ -206,7 +207,9 @@
       }
       .record {
         margin: 0px auto;
-        width: 700px;
+        width: 772px;
+        padding-left: 36px;
+        box-sizing: border-box;
         text-align: left;
         ul {
           padding-left: 4px;
@@ -214,28 +217,35 @@
           li {
             display: inline-block;
             list-style: none;
-            padding: 0px 16px;
-            color: rgba(0,0,0,0.4);
+            color: rgba(0,0,0,0.25);
             cursor: pointer;
             font-size: 14px;
+            margin-right: 28px;
           }
         }
+      }
+      /deep/.el-input__prefix {
+        left: 33px;
       }
     }
     .list {
       margin: 0px auto;
       width: 1460px;
       li {
+        position: relative;
         height: 241px;
         list-style: none;
         cursor: pointer;
         padding: 30px 130px;
         box-sizing: border-box;
+        font-size: 0px;
         .left {
           display: inline-block;
         }
         .right {
-          padding: 6px 8px;
+          position: relative;
+          padding: 10px 20px 0px;
+          height: 181px;
           box-sizing: border-box;
           display: inline-block;
           width: calc(100% - 326px);
@@ -243,29 +253,48 @@
           h6 {
             line-height: 1.0em;
             margin: 0px;
-            font-size: 16px;
+            font-size: 21px;
             font-weight: normal;
+            color: rgba(0,0,0,0.8);
           }
           .date {
             font-size: 14px;
             font-weight: 400;
             line-height: 20px;
-            color: rgba(0,0,0,0.2);
+            color: rgba(0,0,0,0.29);
           }
           .content {
-            color: #808080;
+            color: rgba(0,0,0,0.6);
             font-size: 14px;
-            line-height: 1.8em;
+            line-height: 28px;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0px;
+            width: 834px;
+            height: 0px;
+            border-bottom: 1px dashed rgba(0,0,0,0.15);
           }
         }
         &:hover {
           background-color: rgba(62,62,255,0.05);
         }
+
       }
       .page {
         margin: 70px auto 40px;
         width: 400px;
         text-align: center;
+      }
+      .totalPage {
+        position: absolute;
+        bottom: 492px;
+        left: calc(50% + 160px);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 1px;
       }
     }
   }
@@ -277,12 +306,15 @@
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
+  /*/deep/.el-pagination__total {*/
+    /*float: right;*/
+  /*}*/
   /deep/.el-carousel__indicators {
     display: none!important;
   }
   /deep/.el-carousel__arrow--left,
   /deep/.el-carousel__arrow--right {
-    display: block!important;
+    /*display: block!important;*/
   }
   /deep/.el-carousel__arrow {
     top: 92%;
@@ -301,6 +333,7 @@
   }
   /deep/.el-input__icon.el-icon-search {
     line-height: 44px!important;
+    font-size: 18px;
   }
   /deep/.el-pager li {
     margin: 0px 4px;
@@ -314,8 +347,13 @@
     }
     &:hover {
       background-color: rgba(62, 62, 255, 0.2);
+      color: #303133;
       border-radius: 50%;
     }
+  }
+  /deep/.el-pagination .btn-next .el-icon,
+  /deep/.el-pagination .btn-prev .el-icon {
+    font-size: 16px!important;
   }
 
 </style>

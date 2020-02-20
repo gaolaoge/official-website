@@ -186,7 +186,7 @@
     .advantage {
       width: 1440px;
       height: 602px;
-      margin: 70px auto 100px;
+      margin: 120px auto 100px;
       .bigTitle {
         text-align: center;
         color: #ddd;
@@ -211,8 +211,8 @@
           z-index: -1;
           background-color: rgba(62,62,255,0.03);
           width: 1330px;
-          top: 12px;
-          height: 444px;
+          top: 132px;
+          height: 393px;
           right: 0px;
         }
         .b {
@@ -222,8 +222,8 @@
             height: 444px;
             img {
               margin-top: 62px;
-              width: 576px;
-              height: 324px;
+              width: 620px;
+              height: 354px;
               display: inline-block;
             }
           }
@@ -232,8 +232,16 @@
             width: calc(1440px - 576px);
             font-size: 17px;
             line-height: 2.0em;
-            padding: 80px 100px;
+            padding: 190px 100px 0px;
             box-sizing: border-box;
+            p {
+              margin: 0px;
+              font-size: 18px;
+              font-weight: 400;
+              color: rgba(96,96,96,1);
+              line-height: 36px;
+
+            }
           }
         }
         .advantageList {
@@ -396,6 +404,9 @@
           }
         }
       }
+    }
+    .positioning {
+      height: 650px;
     }
     .advantage {
       height: 1340px;
