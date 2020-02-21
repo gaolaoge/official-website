@@ -187,20 +187,21 @@
       width: 1440px;
       height: 602px;
       margin: 120px auto 100px;
+      font-family:PingFangSC-Semibold,PingFang SC;
       .bigTitle {
         text-align: center;
-        color: #ddd;
+        color: rgba(0,0,0,0.19);
         font-size: 50px;
-        font-weight: normal;
-        line-height: 1.0em;
-        margin: 10px 0px 8px;
+        font-weight: 600;
+        line-height: 70px;
+        margin: 0px;
         letter-spacing: 2px;
       }
       .title {
         text-align: center;
         font-size: 30px;
         margin: 0px;
-        line-height: 1.0em;
+        color: rgba(48,48,48,1);
       }
       article {
         position: relative;
@@ -251,6 +252,7 @@
             flex-direction: column;
             justify-content: space-around;
             height: 100%;
+            padding-left: 0px;
             li {
               position: relative;
               width: 100%;
@@ -410,7 +412,7 @@
     }
     .advantage {
       height: 1340px;
-      width: 1260px;
+      width: 1440px;
       article {
         height: 1240px;
       }

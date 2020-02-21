@@ -161,7 +161,7 @@
                       那为什么说易烊千玺和周冬雨这次的香港金像…`
           }
         ],
-        currentPage1: 2
+        currentPage1: 1
       }
     },
     methods: {

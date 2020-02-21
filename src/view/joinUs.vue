@@ -2,9 +2,9 @@
   <div>
     <el-dialog :visible.sync="statusVal"
                width="640px"
-               @close="$emit('shutMe',false)">
+               @close="shutWinNow">
       <div class="firstStep" v-show="join">
-        <img src="@/icons/icon_close.png" alt="" class="closeBtn" @click="$emit('shutMe',false)">
+        <img src="@/icons/icon_close.png" alt="" class="closeBtn" @click="shutWinNow">
         <h6 class="mainTit">
           {{ title }}
         </h6>
@@ -43,7 +43,7 @@
         <div slot="footer"
              class="dialog-footer">
           <el-button type="primary"
-                     @click="shutWin">确 定</el-button>
+                     @click="shutWin">提交</el-button>
         </div>
       </div>
       <div class="secondStep" v-show="!join">
@@ -78,7 +78,8 @@
         },
         num: 3,
         join: true,
-        title: '欢迎加入中国电影云基地'
+        title: '欢迎加入中国电影云基地',
+        fun: null
       }
     },
     props: {
@@ -92,7 +93,7 @@
         this.join = false
         let self_ = this,
             t = function(){
-          setTimeout(function (){
+          self_.fun = setTimeout(function (){
             self_.num --
             if(self_.num > 0){
               t()
@@ -106,7 +107,16 @@
           },1000)
         }
         t()
+      },
+      shutWinNow(){
+        clearTimeout(this.fun)
+        this.$emit('shutMe',false)
+        this.num = 3
+        this.join = true
       }
+    },
+    mounted(){
+      let t = 'gaoge'
     }
   }
 </script>
@@ -175,6 +185,9 @@
       top: 15px;
       right: 15px;
       cursor: pointer;
+    }
+    .el-input__inner {
+      font-weight: 600;
     }
   }
 </style>

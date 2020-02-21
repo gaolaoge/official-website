@@ -32,6 +32,9 @@
     },
     mounted(){
       window.addEventListener('scroll',this.handleScroll)
+      this.$router.afterEach((to, from, next) => {
+        window.scrollTo(0, 0)
+      })
     },
     methods: {
       handleScroll(){
@@ -65,10 +68,14 @@
   }
   /deep/.el-backtop {
     border-radius: 5px;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(233,233,233,0.7);
+    i {
+      color: #fff;
+    }
     &:hover {
       color: #fff;
-      background-color: rgba(83,83,253,1);
+      background-image: url('./icons/mini_btn_bgi.png');
+      background-size: cover;
     }
   }
   .tel,

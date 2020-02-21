@@ -59,7 +59,19 @@
           </ul>
         </nav>
         <aside class="videoBox">
-          <img :src="base.videoUrl" alt="">
+          <div
+               class="occludeVideo"
+               :class="[{hideMe: videoOcclude}]"
+               @click="playVideo">
+            <img src="@/icons/icon_off.png" alt="">
+          </div>
+          <video :src="base.videoUrl"
+                 :controls="videoOcclude"
+                 loop
+                 :poster="base.imageUrl"
+                 ref="mainVideo"
+                 class="videoClass"
+          ></video>
         </aside>
       </article>
     </section>
@@ -81,7 +93,9 @@
               {{ association.mainText }}
             </span>
             <div class="btn">
-              {{ association.btn }}
+              <span @click="$router.push('/association')">
+                {{ association.btn }}
+              </span>
             </div>
           </div>
         </div>
@@ -163,14 +177,17 @@ export default {
       platform: {
         title: 'CHINA MOIVE CLOUD',
         littleTitle: '中国电影云平台',
-        direction: `中国电影云平台是基于云计算服务平台的数字电影网络化、
-                    分布式跨越协同制作，
-                    促进我国精品电影持续推出，
-                    有效提升我国电影制作水平和能力，
-                    创建云计算体系下的现代电影生产制作工艺流程和新型产业服务模式，
-                    并推动电影制作与高速互联网、
-                    移动互联网实现深度融合，
-                    进而推动电影制作工业化体系建立完善。`
+        direction: `中宣部中国电影科学技术研究所作为中国电影行业唯一的国家级电影科研机构，
+                    在新时代承载着以自主创新支撑中国电影高质量发展的使命和担当。
+                    中国电影科研所率先提出构建国家电影云制作服务平台，
+                    基于云计算平台提供数字电影分布式跨地域远程协同制作服务，
+                    为国产精品电影持续有效推出创建协作机制和支撑平台。
+                    通过创建“强强联合、
+                    优势互补、
+                    协同创新”的电影制作新模式，
+                    形成制作合力，
+                    进而有效克服国内制作机构“小而散”发展瓶颈，
+                    并为实现国际素材交换提供安全性和互操作保障。`
       },
       list: [
         {
@@ -178,15 +195,15 @@ export default {
         },
         {
           title: '云管理系统',
-          direction: '基于云计算服务平台的数字电影网络化、分布式跨越协同制作，促进我国精品电影...',
+          direction: '将复杂分散的多团队跨地域协同制作管理转化为简易软 件操作，将制作进度、质量…',
           button: 'MORE'
         },
         {
           imgUrl: require('@/assets/li-p2.png')
         },
         {
-          title: '云平台',
-          direction: '基于云计算服务平台的数字电影网络化、分布式跨越协同制作，促进我国精品电影...',
+          title: '云桌面',
+          direction: '使用户能够随时随地通过瘦终端访问高性能影视制作环境，为用户创造简单易用的…',
           button: 'MORE'
         },
         {
@@ -194,14 +211,15 @@ export default {
         },
         {
           title: '渲染农场',
-          direction: '基于云计算服务平台的数字电影网络化、分布式跨越协同制作，促进我国精品电影...',
+          direction: '我公司通过高性能服务器集群的算力整合开发,对复杂渲染任务实施分解和并行加速…',
           button: 'MORE'
         }
       ],
       base: {
         title: 'CHINA MOIVE CLOUD BASE',
         direction: '中国电影云基地',
-        videoUrl: require('@/assets/video-1.png'),
+        imageUrl: require('@/assets/video-1.png'),
+        videoUrl: require('@/assets/v.mp4'),
         list: [
           {
             name: '前沿技术',
@@ -210,7 +228,7 @@ export default {
           },
           {
             name: '政府补贴',
-            active: true,
+            active: false,
             index: '02'
           },
           {
@@ -278,7 +296,8 @@ export default {
       partners: {
         title: 'BUSINESS PARTNERS',
         littleTitle: '合作伙伴'
-      }
+      },
+      videoOcclude: false
     }
   },
   methods: {
@@ -288,6 +307,10 @@ export default {
         if(index_ == index)
           curr_.active = true
       })
+    },
+    playVideo(){
+      this.videoOcclude = true
+      this.$refs.mainVideo.play()
     }
   }
 }
@@ -323,30 +346,38 @@ export default {
       height: 720px;
     }
     .background-2 {
-      top: 180px;
-      height: 500px;
+      top: 220px;
+      height: 600px;
     }
     .background-3 {
       top: 0px;
     }
     .title {
-      font-weight: 800;
-      font-size: 50px;
+      font-family:Arial-Black,Arial;
+      font-weight: 900;
+      font-size: 36px;
+      line-height: 51px;
+      color: rgba(48,48,48,1);
+      letter-spacing: 1px;
     }
     .littleTitle {
-      /*margin-top: 6px;*/
-      margin-top: 0px;
+      font-family:PingFangSC-Regular,PingFang SC;
       font-size: 18px;
+      font-weight: 400;
+      margin-top: 0px;
+      line-height: 25px;
       color: rgba(48,48,48,1);
     }
     .title.even_ {
       padding-top: 50px;
     }
     .dircetion {
+      font-family:PingFangSC-Regular,PingFang SC;
       margin-top: 26px;
       color: rgba(128,128,128,1);
       font-size: 16px;
-      line-height: 24px;
+      line-height: 28px;
+      text-align: left;
     }
     aside {
       margin: 40px auto 0px;
@@ -355,6 +386,7 @@ export default {
         padding: 0px;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         li {
           box-sizing: border-box;
           list-style: none;
@@ -374,6 +406,7 @@ export default {
             color: rgba(48,48,48,1);
             font-size: 15px;
             line-height: 30px;
+            text-align: left;
           }
           .button {
             margin: 20px auto;
@@ -381,7 +414,8 @@ export default {
             font-size: 12px;
             line-height: 1.8em;
             font-weight: normal;
-            border: 1px solid #303030;
+            border: 1px solid rgba(48,48,48,0.79);
+            border-radius: 1px;
             box-shadow:0px 2px 10px 0px rgba(62,62,255,0.1);
             cursor: pointer;
             transition: box-shadow 0.2s;
@@ -420,14 +454,17 @@ export default {
             vertical-align: top;
             .date,
             .week {
-              font-size: 32px;
-              font-weight: bold;
+              font-family:Arial-BoldItalicMT,Arial;
+              font-size: 48px;
+              line-height: 53px;
+              font-weight: 600;
               font-style: italic;
-              color: #bbb;
+              color: rgba(176,176,176,1);
               margin: 0px;
             }
             .week {
-              font-size: 20px;
+              font-size: 24px;
+              line-height: 28px;
 
             }
           }
@@ -437,26 +474,39 @@ export default {
             padding: 8px 20px;
             text-align: left;
             .title {
+              font-family:PingFangSC-Semibold,PingFang SC;
               font-size: 16px;
               line-height: 22px;
               font-weight: 600;
               color: rgba(48,48,48,1);
             }
             .direction {
+              font-family:PingFangSC-Regular,PingFang SC;
               margin-top: 10px;
-              color: #888;
-              font-size: 13px;
+              color:rgba(128,128,128,1);
+              font-size: 12px;
               line-height: 2.0em;
             }
             .btn {
-              color: #3E3EFF;
-              font-size: 13px;
-              line-height: 4.0em;
+              margin-top: 25px;
+              color:rgba(62,62,255,1);
+              font-size: 12px;
+              font-weight: 600;
+              line-height: 2.0em;
               cursor: pointer;
+              i {
+                font-weight: 600;
+              }
             }
           }
           &:hover {
-            box-shadow:0px 2px 30px 0px rgba(112,112,255,0.1);
+            box-shadow:0px 2px 30px 0px rgba(112,112,255,0.2);
+            .btn {
+              font-weight: 600;
+              i {
+                font-weight: 600;
+              }
+            }
           }
         }
       }
@@ -473,19 +523,31 @@ export default {
       ul {
         display: flex;
         justify-content: space-around;
-        height: 26px;
+        height: 72px;
+        padding-left: 0px;
         li {
           list-style: none;
           font-size: 14px;
           color: #424242;
           cursor: pointer;
-          line-height: 26px;
+          line-height: 72px;
           transition: all 0.2s;
-          width: 150px;
+          /*width: 222px;*/
+          i {
+            margin-left: -6px;
+          }
           &:hover,
           &.active {
             color: #3E3EFF;
             font-size: 22px;
+            box-shadow:0px 2px 15px 0px rgba(62,62,255,0.2);
+            /*padding: 6px 15px;*/
+            width: 222px;
+            border-radius: 36px;
+            line-height: 72px;
+            i {
+              margin-left: -10px;
+            }
           }
         }
       }
@@ -493,10 +555,27 @@ export default {
     .videoBox {
       width: 1200px;
       height: 600px;
-      box-shadow: 0px 0px 4px 1px #ccc;
+      box-shadow: 0px 0px 24px 1px #aaa;
       overflow: hidden;
-      img {
-        //margin: -20px 0px 0px -20px;
+      position: relative;
+      .occludeVideo {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        cursor: pointer;
+        img {
+          margin: 230px auto;
+        }
+        &.hideMe {
+          display: none;
+        }
+        &::before {
+          content: ''
+        }
+        /*opacity: 0;*/
+      }
+      .videoClass {
+        width: 1200px;
         height: 600px;
       }
     }
@@ -513,11 +592,12 @@ export default {
         }
       }
       .text {
+        font-family:PingFangSC-Regular,PingFang SC;
         width: 550px;
         font-size: 18px;
         font-weight: 400;
         box-sizing: border-box;
-        padding: 140px 0px 0px 92px;
+        padding: 110px 0px 0px 92px;
         line-height: 40px;
         color: rgba(96,96,96,1);
         text-align: left;
@@ -534,7 +614,7 @@ export default {
         box-shadow:0px 2px 10px 0px rgba(0,0,0,0.1);
         color:rgba(188,188,188,1);
         border-radius: 1px;
-        letter-spacing:1px;
+        letter-spacing: 2px;
         /*border: 1px solid rgba(0,0,0,1);*/
         text-align: center;
         cursor: pointer;
@@ -550,10 +630,13 @@ export default {
   }
   .information {
     width: 1400px;
-    margin-top: 160px;
+    margin-top: 206px;
   }
   .partners {
     width: 100vw;
+    .littleTitle {
+      margin-bottom: 30px;
+    }
     aside {
       margin: 0px auto;
       width: 1462px;

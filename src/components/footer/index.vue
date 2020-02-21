@@ -273,6 +273,7 @@
                 }
                 &:nth-of-type(1) {
                   margin-right: 18px;
+
                 }
                 &:hover {
                   .i {
@@ -291,6 +292,8 @@
                   height: 120px;
                   box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.4);
                   display: none;
+                  border-radius: 4px;
+                  overflow: hidden;
                 }
               }
               .btn {
